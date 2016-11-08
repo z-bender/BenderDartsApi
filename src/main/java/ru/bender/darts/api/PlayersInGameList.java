@@ -96,19 +96,16 @@ public class PlayersInGameList {
      * Сбросить результаты игроков
      */
     private void resetPlayersResult() {
-        for (PlayerInGame player : players) {
-            player.resetResults();
-        }
+        players.forEach(player -> player.resetResults());
     }
 
     /**
      * Добавить всех игроков в очередь для хода
      */
+    //TODO при UI не нужно. Удалить или вынести из api
     private void addAllPlayersToQueue() {
         queueOfPlayersForStep = new PriorityQueue<>();
-        for (PlayerInGame player : players) {
-            queueOfPlayersForStep.offer(player);
-        }
+        players.forEach(player -> queueOfPlayersForStep.offer(player));
     }
 
     //-------------------- Getters/Setters ------------------------//
