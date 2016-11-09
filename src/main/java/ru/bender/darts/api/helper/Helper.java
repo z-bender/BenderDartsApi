@@ -1,11 +1,11 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.helper;
 
 import java.util.Scanner;
 
 /**
  * Created by user on 30.09.2016.
  */
-class Helper {
+public class Helper {
 
     /**
      * Получить введенное пользователем число

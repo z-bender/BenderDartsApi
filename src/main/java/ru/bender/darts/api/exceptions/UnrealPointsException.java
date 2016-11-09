@@ -1,7 +1,7 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.exceptions;
 
 public class UnrealPointsException extends DartsApiException {
-    UnrealPointsException(String message) {
+    public UnrealPointsException(String message) {
         super(message);
     }
 }

@@ -1,4 +1,4 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.impl;
 
 /**
  * Created by bender on 27.09.2016.

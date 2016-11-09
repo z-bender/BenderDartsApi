@@ -1,4 +1,4 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.interfaces;
 
 /**
  * Интерфейс для UI-элемента, в котором будет запрашиваться у пользователя количество бросков игрока

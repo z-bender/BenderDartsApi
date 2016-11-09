@@ -1,4 +1,7 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.impl;
+
+import ru.bender.darts.api.interfaces.ShotsCountUI;
+import ru.bender.darts.api.exceptions.UnrealPointsException;
 
 /**
  * Created by bender on 28.09.2016.

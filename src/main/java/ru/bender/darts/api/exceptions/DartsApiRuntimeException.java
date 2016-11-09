@@ -1,4 +1,4 @@
-package ru.bender.darts.api;
+package ru.bender.darts.api.exceptions;
 
 /**
  * Created by bender on 24.10.16.
