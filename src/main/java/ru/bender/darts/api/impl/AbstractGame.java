@@ -1,13 +1,14 @@
 package ru.bender.darts.api.impl;
 
 import ru.bender.darts.api.helper.Helper;
+import ru.bender.darts.api.interfaces.Game;
 import ru.bender.darts.api.interfaces.ShotsCountUI;
 import ru.bender.darts.api.exceptions.UnrealPointsException;
 
 /**
  * Created by bender on 27.09.2016.
  */
-public abstract class Game {
+public abstract class AbstractGame implements Game{
 
     //------------------- Constants ------------------------------//
 
@@ -15,7 +16,7 @@ public abstract class Game {
 
     //------------------- Constructors ---------------------------//
 
-    public Game(short pointsToEnd) {
+    public AbstractGame(short pointsToEnd) {
         this.pointsToEnd = pointsToEnd;
         this.dartsCount = DEFAULT_DARTS_COUNT;
         playersList = new PlayersInGameList();
@@ -34,6 +35,7 @@ public abstract class Game {
     //-------------------- Open methods ---------------------------//
 
     //TODO
+    @Override
     public void play(ShotsCountUI shotsCountUI) {
 
         playersList.resetListToNewGame();
@@ -59,13 +61,15 @@ public abstract class Game {
      * @param shotsCountUI - Интерфейс для UI-элемента, в котором будет вводится количество бросков игрока
      * @return - игрок закончил игру?
      */
+    @Override
     public abstract boolean step(PlayerInGame player, short points, ShotsCountUI shotsCountUI) throws UnrealPointsException;
 
 
     //-------------------- Getters/Setters ------------------------//
 
 
-    short getPointsToEnd() {
+    @Override
+    public short getPointsToEnd() {
         return pointsToEnd;
     }
 }

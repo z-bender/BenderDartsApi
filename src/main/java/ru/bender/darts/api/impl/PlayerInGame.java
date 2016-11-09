@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class PlayerInGame implements Comparable<PlayerInGame> {
 
-    public PlayerInGame(Player player, Game game) {
+    public PlayerInGame(Player player, AbstractGame game) {
         this.player = player;
         this.game = game;
         resetResults();
@@ -26,7 +26,7 @@ public class PlayerInGame implements Comparable<PlayerInGame> {
     // завершил удвоением/утроением
     private boolean isCompletedWithDoubling;
     // ссылка на игру
-    private Game game;
+    private AbstractGame game;
     //------------------- open methods ---------------------------//
 
     /**
@@ -93,7 +93,7 @@ public class PlayerInGame implements Comparable<PlayerInGame> {
         return pointsToEnd;
     }
 
-    // TODO: проверять из какого метода вызван. Если !ru.bender.darts.api.impl.Game.step() - тогда Exception. Подумать где ещё может вызываться (например, reset).
+    // TODO: проверять из какого метода вызван. Если !ru.bender.darts.api.impl.AbstractGame.step() - тогда Exception. Подумать где ещё может вызываться (например, reset).
     // TODO: продумать подобную проверку для других методов
     void setPointsToEnd(short pointsToEnd) {
         this.pointsToEnd = pointsToEnd;

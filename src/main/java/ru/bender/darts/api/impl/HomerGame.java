@@ -6,7 +6,7 @@ import ru.bender.darts.api.exceptions.UnrealPointsException;
 /**
  * Created by bender on 28.09.2016.
  */
-public class HomerGame extends Game {
+public class HomerGame extends AbstractGame {
 
     //------------------- Constants ------------------------------//
 
