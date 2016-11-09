@@ -3,7 +3,7 @@ package ru.bender.darts.api;
 /**
  * Created by bender on 27.09.2016.
  */
-public abstract class Player {
+public class Player {
     // имя
     protected String name;
     // лучший результат за ход TODO

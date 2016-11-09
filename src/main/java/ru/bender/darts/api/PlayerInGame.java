@@ -5,13 +5,15 @@ import java.util.ArrayList;
 /**
  * Created by bender on 28.09.2016.
  */
-public class PlayerInGame extends Player implements Comparable<PlayerInGame> {
+public class PlayerInGame implements Comparable<PlayerInGame> {
 
-    public PlayerInGame(String name, Game game) {
-        super(name);
+    public PlayerInGame(Player player, Game game) {
+        this.player = player;
         this.game = game;
         resetResults();
     }
+
+    private Player player;
 
     // очков до финиша
     private short pointsToEnd;
@@ -25,7 +27,6 @@ public class PlayerInGame extends Player implements Comparable<PlayerInGame> {
     private boolean isCompletedWithDoubling;
     // ссылка на игру
     private Game game;
-
     //------------------- open methods ---------------------------//
 
     /**
@@ -45,7 +46,6 @@ public class PlayerInGame extends Player implements Comparable<PlayerInGame> {
         shotsCount = 0;
         isCompletedWithDoubling = false;
     }
-
 
     /**
      * Правила сравнения (сортировки) результатов двух игроков.
@@ -81,12 +81,13 @@ public class PlayerInGame extends Player implements Comparable<PlayerInGame> {
         return 0;
     }
 
-    //-------------------- Getters/Setters ------------------------//
 
+    //-------------------- Getters/Setters ------------------------//
 
     short getNumber() {
         return number;
     }
+
 
     public short getPointsToEnd() {
         return pointsToEnd;
@@ -113,6 +114,10 @@ public class PlayerInGame extends Player implements Comparable<PlayerInGame> {
 
     void setPosition(ArrayList<PlayerInGame> players) {
         this.position = (short)players.indexOf(this);
+    }
+
+    public String  getName() {
+        return player.getName();
     }
 
     //-------------------- private methods ---------------------------//
