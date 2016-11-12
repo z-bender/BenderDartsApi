@@ -36,9 +36,9 @@ public abstract class AbstractGame implements Game{
     // Список игроков
     public PlayersInGameList playersList;
     // Количество дротиков
-    protected final short dartsCount;
+    protected short dartsCount;
     // Количество очков для победы
-    protected final short pointsToEnd;
+    protected short pointsToEnd;
 
     //-------------------- Open methods ---------------------------//
 
@@ -75,6 +75,31 @@ public abstract class AbstractGame implements Game{
 
     //-------------------- Getters/Setters ------------------------//
 
+
+    @Override
+    public void setPlayersList(PlayersInGameList playersList) {
+        this.playersList = playersList;
+    }
+
+    @Override
+    public PlayersInGameList getPlayersList() {
+        return playersList;
+    }
+
+    @Override
+    public void setDartsCount(short dartsCount) {
+        this.dartsCount = dartsCount;
+    }
+
+    @Override
+    public short getDartsCount() {
+        return dartsCount;
+    }
+
+    @Override
+    public void setPointsToEnd(short pointsToEnd) {
+        this.pointsToEnd = pointsToEnd;
+    }
 
     @Override
     public short getPointsToEnd() {

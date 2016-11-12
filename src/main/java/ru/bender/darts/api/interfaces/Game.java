@@ -11,5 +11,16 @@ public interface Game {
 
     boolean step(PlayerInGame player, short points, LastShotsCounter lastShotsCounter) throws UnrealPointsException;
 
+    void setPlayersList(PlayersInGameList playersList);
+
+    PlayersInGameList getPlayersList();
+
+    void setDartsCount(short dartsCount);
+
+    short getDartsCount();
+
+    void setPointsToEnd(short pointsToEnd);
+
     short getPointsToEnd();
+
 }
