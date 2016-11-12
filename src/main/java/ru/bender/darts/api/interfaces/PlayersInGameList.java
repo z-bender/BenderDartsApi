@@ -2,9 +2,6 @@ package ru.bender.darts.api.interfaces;
 
 import java.util.ArrayList;
 
-/**
- * Created by bender on 12.11.16.
- */
 public interface PlayersInGameList {
     void addPlayer(PlayerInGame player);
 

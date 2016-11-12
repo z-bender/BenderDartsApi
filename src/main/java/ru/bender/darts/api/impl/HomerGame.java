@@ -1,12 +1,11 @@
 package ru.bender.darts.api.impl;
 
+import org.springframework.stereotype.Component;
 import ru.bender.darts.api.exceptions.UnrealPointsException;
-import ru.bender.darts.api.interfaces.PlayerInGame;
 import ru.bender.darts.api.interfaces.LastShotsCounter;
+import ru.bender.darts.api.interfaces.PlayerInGame;
 
-/**
- * Created by bender on 28.09.2016.
- */
+@Component
 public class HomerGame extends AbstractGame {
 
     //------------------- Constants ------------------------------//

@@ -1,10 +1,13 @@
 package ru.bender.darts.api.impl;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import ru.bender.darts.api.interfaces.Player;
 
-/**
- * Created by bender on 27.09.2016.
- */
+@Component
+@Lazy
+@Scope("prototype")
 public class PlayerImpl implements Player {
     // имя
     private String name;

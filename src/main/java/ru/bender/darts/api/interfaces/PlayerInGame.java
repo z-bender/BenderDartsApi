@@ -1,10 +1,9 @@
 package ru.bender.darts.api.interfaces;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
-/**
- * Created by bender on 12.11.16.
- */
 public interface PlayerInGame extends Comparable<PlayerInGame> {
     boolean isEnd();
 
@@ -29,6 +28,7 @@ public interface PlayerInGame extends Comparable<PlayerInGame> {
 
     Player getPlayer();
 
+    @Autowired
     void setPlayer(Player player);
 
     short getShotsCount();

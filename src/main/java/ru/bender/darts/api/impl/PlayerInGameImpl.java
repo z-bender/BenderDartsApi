@@ -1,13 +1,16 @@
 package ru.bender.darts.api.impl;
 
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import ru.bender.darts.api.interfaces.Player;
 import ru.bender.darts.api.interfaces.PlayerInGame;
 
 import java.util.List;
 
-/**
- * Created by bender on 28.09.2016.
- */
+@Component
+@Lazy
+@Scope("prototype")
 public class PlayerInGameImpl implements PlayerInGame {
 
     public PlayerInGameImpl(Player player, short initialPointToEnd) {
