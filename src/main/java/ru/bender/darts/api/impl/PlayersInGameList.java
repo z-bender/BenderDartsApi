@@ -53,6 +53,34 @@ public class PlayersInGameList {
         addAllPlayersToQueue();
     }
 
+    /**
+     * Сбросить результаты игроков
+     */
+    private void resetPlayersResult() {
+        players.forEach(player -> player.resetResults());
+    }
+
+    /**
+     * Задаем рандомные номера для игроков
+     */
+    private void shufflePlayers(){
+        Collections.shuffle(players);
+        short number = 0;
+        for (PlayerInGame player : players) {
+            player.setNumber(number++);
+        }
+    }
+
+    /**
+     * Добавить всех игроков в очередь для хода
+     */
+    //TODO при UI не нужно. Удалить или вынести из api
+    private void addAllPlayersToQueue() {
+        queueOfPlayersForStep = new PriorityQueue<>();
+        players.forEach(player -> queueOfPlayersForStep.offer(player));
+    }
+
+
     /*TODO - хранить прошлые состояния players - посмотреть System.arraycopy
     * копируем players после step и храним его в очереди
     * */
@@ -73,42 +101,13 @@ public class PlayersInGameList {
      *
      * @return
      */
+    // TODO: для UI лишнее
     public PlayerInGame getNextPlayerForStep() {
         PlayerInGame nextPlayer = queueOfPlayersForStep.poll();
         if (!nextPlayer.isEnd()) {
             queueOfPlayersForStep.offer(nextPlayer);
         }
         return nextPlayer;
-    }
-
-
-    //-------------------- private methods ---------------------------//
-
-    /**
-     * Задаем рандомные номера для игроков
-     */
-    private void shufflePlayers(){
-        Collections.shuffle(players);
-        short number = 0;
-        for (PlayerInGame player : players) {
-            player.setNumber(number++);
-        }
-    }
-
-    /**
-     * Сбросить результаты игроков
-     */
-    private void resetPlayersResult() {
-        players.forEach(player -> player.resetResults());
-    }
-
-    /**
-     * Добавить всех игроков в очередь для хода
-     */
-    //TODO при UI не нужно. Удалить или вынести из api
-    private void addAllPlayersToQueue() {
-        queueOfPlayersForStep = new PriorityQueue<>();
-        players.forEach(player -> queueOfPlayersForStep.offer(player));
     }
 
     //-------------------- Getters/Setters ------------------------//
@@ -132,16 +131,14 @@ public class PlayersInGameList {
      *
      * @return
      */
-    public ArrayList<PlayerInGame> getPlayers() {
+    public ArrayList<PlayerInGame> getPlayersClone() {
         return (ArrayList<PlayerInGame>) players.clone();
     }
 
-    public ArrayList<PlayerInGame> getPlayers(CompareBy compareBy){
-        ArrayList<PlayerInGame> playersClone = getPlayers();
+    public ArrayList<PlayerInGame> getPlayersClone(CompareBy compareBy){
+        ArrayList<PlayerInGame> playersClone = getPlayersClone();
         playersClone.sort(getComparator(compareBy));
         return playersClone;
     }
-
-
 
 }
