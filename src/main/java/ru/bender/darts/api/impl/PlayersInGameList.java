@@ -141,4 +141,11 @@ public class PlayersInGameList {
         return playersClone;
     }
 
+    public ArrayList<PlayerInGame> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<PlayerInGame> players) {
+        this.players = players;
+    }
 }
