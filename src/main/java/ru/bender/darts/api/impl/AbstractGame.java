@@ -14,6 +14,8 @@ public abstract class AbstractGame implements Game{
 
     //------------------- Constants ------------------------------//
 
+    public static final short DEFAULT_POINTS_TO_END = 300;
+
     public static final short DEFAULT_DARTS_COUNT = 3;
 
     //------------------- Constructors ---------------------------//
@@ -22,6 +24,10 @@ public abstract class AbstractGame implements Game{
         this.pointsToEnd = pointsToEnd;
         this.dartsCount = DEFAULT_DARTS_COUNT;
         playersList = new PlayersInGameListImpl();
+    }
+
+    public AbstractGame() {
+        this(DEFAULT_POINTS_TO_END);
     }
 
 
