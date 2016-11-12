@@ -1,6 +1,7 @@
 package ru.bender.darts.api.impl;
 
 import ru.bender.darts.api.exceptions.DartsApiRuntimeException;
+import ru.bender.darts.api.interfaces.PlayerInGame;
 
 import java.util.*;
 
@@ -63,7 +64,7 @@ public class PlayersInGameList {
     public void refreshPositions() {
         Collections.sort(players);
         for (PlayerInGame player : players) {
-            player.setPosition(players);
+            player.updatePosition(players);
         }
     }
 

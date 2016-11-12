@@ -1,7 +1,6 @@
 package ru.bender.darts.api.interfaces;
 
 import ru.bender.darts.api.exceptions.UnrealPointsException;
-import ru.bender.darts.api.impl.PlayerInGame;
 
 /**
  * Created by bender on 09.11.16.

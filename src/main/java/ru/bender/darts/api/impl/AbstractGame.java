@@ -1,9 +1,10 @@
 package ru.bender.darts.api.impl;
 
+import ru.bender.darts.api.exceptions.UnrealPointsException;
 import ru.bender.darts.api.helper.Helper;
 import ru.bender.darts.api.interfaces.Game;
+import ru.bender.darts.api.interfaces.PlayerInGame;
 import ru.bender.darts.api.interfaces.ShotsCountUI;
-import ru.bender.darts.api.exceptions.UnrealPointsException;
 
 /**
  * Created by bender on 27.09.2016.
@@ -45,7 +46,7 @@ public abstract class AbstractGame implements Game{
                 break;
             }
             try {
-                this.step(player, Helper.getUserInputShort("Бросает " + player.getName() + ". Введи результат: "), shotsCountUI);
+                this.step(player, Helper.getUserInputShort("Бросает " + player.getPlayerName() + ". Введи результат: "), shotsCountUI);
             } catch (UnrealPointsException e) {
                 System.out.println(e.getMessage());
             }
