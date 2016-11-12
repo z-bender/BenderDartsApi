@@ -1,5 +1,7 @@
 package ru.bender.darts.api.impl;
 
+import ru.bender.darts.api.interfaces.Player;
+
 import java.util.ArrayList;
 
 /**

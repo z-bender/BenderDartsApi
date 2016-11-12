@@ -1,7 +1,7 @@
 package ru.bender.darts.api;
 
 import ru.bender.darts.api.impl.HomerGame;
-import ru.bender.darts.api.impl.Player;
+import ru.bender.darts.api.impl.PlayerImpl;
 import ru.bender.darts.api.impl.PlayerInGame;
 import ru.bender.darts.api.interfaces.ShotsCountUI;
 
@@ -11,9 +11,9 @@ import ru.bender.darts.api.interfaces.ShotsCountUI;
 class HomerGameTest implements ShotsCountUI {
     public static void main(String[] args) {
         HomerGame homerGame = new HomerGame();
-        homerGame.playersList.addPlayer(new PlayerInGame(new Player("василий"), homerGame));
-        homerGame.playersList.addPlayer(new PlayerInGame(new Player("юрий павлович"), homerGame));
-        homerGame.playersList.addPlayer(new PlayerInGame(new Player("алёшка"), homerGame));
+        homerGame.playersList.addPlayer(new PlayerInGame(new PlayerImpl("василий"), homerGame));
+        homerGame.playersList.addPlayer(new PlayerInGame(new PlayerImpl("юрий павлович"), homerGame));
+        homerGame.playersList.addPlayer(new PlayerInGame(new PlayerImpl("алёшка"), homerGame));
 
         homerGame.play(new HomerGameTest());
     }
