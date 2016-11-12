@@ -2,7 +2,7 @@ package ru.bender.darts.api.impl;
 
 import ru.bender.darts.api.exceptions.UnrealPointsException;
 import ru.bender.darts.api.interfaces.PlayerInGame;
-import ru.bender.darts.api.interfaces.ShotsCountUI;
+import ru.bender.darts.api.interfaces.LastShotsCounter;
 
 /**
  * Created by bender on 28.09.2016.
@@ -32,11 +32,11 @@ public class HomerGame extends AbstractGame {
      *
      * @param player       - игрок
      * @param points       - количество выбитых очков
-     * @param shotsCountUI - Интерфейс для UI-элемента, в котором будет вводится количество бросков игрока
+     * @param lastShotsCounter - Интерфейс для UI-элемента, в котором будет вводится количество бросков игрока
      * @return - игрок закончил игру?
      */
     @Override
-    public boolean step(PlayerInGame player, short points, ShotsCountUI shotsCountUI) throws UnrealPointsException {
+    public boolean step(PlayerInGame player, short points, LastShotsCounter lastShotsCounter) throws UnrealPointsException {
         if (!checkPoints(points)) {
             throw new UnrealPointsException("Ошибка хода! " + points + " очков нельзя набрать за один ход");
         }
@@ -47,7 +47,7 @@ public class HomerGame extends AbstractGame {
         //TODO: isCompletedWithDoubling - добавить закрытие удвоением
         player.setPointsToEnd(currentPointsToEnd);
         //TODO: если isEnd, то запросить у пользователя количество бросков и переписать countOfShots (в этом случае можно отказаться от перегруза метода и параметра countOfShots
-        short shotsCount = (player.isEnd()) ? shotsCountUI.getShotsCount() : dartsCount;
+        short shotsCount = (player.isEnd()) ? lastShotsCounter.getLastShotsCount() : dartsCount;
         player.addShots(shotsCount);
         //TODO: подумать может ли использоваться в другом месте. Если да, то может быть стоит перенести в сеттер игрока? Наверное не стоит... ещё будет вызываться в сбросе очков для новой игры (наверное не надо там вызывать)
         playersList.refreshPositions();

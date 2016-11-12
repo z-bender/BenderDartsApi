@@ -5,7 +5,7 @@ import ru.bender.darts.api.helper.Helper;
 import ru.bender.darts.api.interfaces.Game;
 import ru.bender.darts.api.interfaces.PlayerInGame;
 import ru.bender.darts.api.interfaces.PlayersInGameList;
-import ru.bender.darts.api.interfaces.ShotsCountUI;
+import ru.bender.darts.api.interfaces.LastShotsCounter;
 
 /**
  * Created by bender on 27.09.2016.
@@ -38,7 +38,7 @@ public abstract class AbstractGame implements Game{
 
     //TODO
     @Override
-    public void play(ShotsCountUI shotsCountUI) {
+    public void play(LastShotsCounter lastShotsCounter) {
 
         playersList.resetListToNewGame();
         while (true) {
@@ -47,7 +47,7 @@ public abstract class AbstractGame implements Game{
                 break;
             }
             try {
-                this.step(player, Helper.getUserInputShort("Бросает " + player.getPlayerName() + ". Введи результат: "), shotsCountUI);
+                this.step(player, Helper.getUserInputShort("Бросает " + player.getPlayerName() + ". Введи результат: "), lastShotsCounter);
             } catch (UnrealPointsException e) {
                 System.out.println(e.getMessage());
             }
@@ -60,11 +60,11 @@ public abstract class AbstractGame implements Game{
      *
      * @param player - игрок
      * @param points - количество выбитых очков
-     * @param shotsCountUI - Интерфейс для UI-элемента, в котором будет вводится количество бросков игрока
+     * @param lastShotsCounter - Интерфейс для UI-элемента, в котором будет вводится количество бросков игрока
      * @return - игрок закончил игру?
      */
     @Override
-    public abstract boolean step(PlayerInGame player, short points, ShotsCountUI shotsCountUI) throws UnrealPointsException;
+    public abstract boolean step(PlayerInGame player, short points, LastShotsCounter lastShotsCounter) throws UnrealPointsException;
 
 
     //-------------------- Getters/Setters ------------------------//

@@ -3,12 +3,12 @@ package ru.bender.darts.api;
 import ru.bender.darts.api.impl.HomerGame;
 import ru.bender.darts.api.impl.PlayerImpl;
 import ru.bender.darts.api.impl.PlayerInGameImpl;
-import ru.bender.darts.api.interfaces.ShotsCountUI;
+import ru.bender.darts.api.interfaces.LastShotsCounter;
 
 /**
  * Created by user on 29.09.2016.
  */
-class HomerGameTest implements ShotsCountUI {
+class HomerGameTest implements LastShotsCounter {
     public static void main(String[] args) {
         HomerGame homerGame = new HomerGame();
         homerGame.playersList.addPlayer(new PlayerInGameImpl(new PlayerImpl("василий"), homerGame.getPointsToEnd()));
@@ -19,7 +19,7 @@ class HomerGameTest implements ShotsCountUI {
     }
 
     @Override
-    public short getShotsCount() {
+    public short getLastShotsCount() {
         return 2;
     }
 }

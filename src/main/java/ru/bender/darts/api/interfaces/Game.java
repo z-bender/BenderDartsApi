@@ -7,9 +7,9 @@ import ru.bender.darts.api.exceptions.UnrealPointsException;
  */
 public interface Game {
 
-    void play(ShotsCountUI shotsCountUI);
+    void play(LastShotsCounter lastShotsCounter);
 
-    boolean step(PlayerInGame player, short points, ShotsCountUI shotsCountUI) throws UnrealPointsException;
+    boolean step(PlayerInGame player, short points, LastShotsCounter lastShotsCounter) throws UnrealPointsException;
 
     short getPointsToEnd();
 }
