@@ -4,6 +4,7 @@ import ru.bender.darts.api.exceptions.UnrealPointsException;
 import ru.bender.darts.api.helper.Helper;
 import ru.bender.darts.api.interfaces.Game;
 import ru.bender.darts.api.interfaces.PlayerInGame;
+import ru.bender.darts.api.interfaces.PlayersInGameList;
 import ru.bender.darts.api.interfaces.ShotsCountUI;
 
 /**
@@ -20,7 +21,7 @@ public abstract class AbstractGame implements Game{
     public AbstractGame(short pointsToEnd) {
         this.pointsToEnd = pointsToEnd;
         this.dartsCount = DEFAULT_DARTS_COUNT;
-        playersList = new PlayersInGameList();
+        playersList = new PlayersInGameListImpl();
     }
 
 

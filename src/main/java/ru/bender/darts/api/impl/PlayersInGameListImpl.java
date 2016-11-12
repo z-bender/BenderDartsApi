@@ -2,21 +2,22 @@ package ru.bender.darts.api.impl;
 
 import ru.bender.darts.api.exceptions.DartsApiRuntimeException;
 import ru.bender.darts.api.interfaces.PlayerInGame;
+import ru.bender.darts.api.interfaces.PlayersInGameList;
 
 import java.util.*;
 
 /**
  * Created by bender on 28.09.2016.
  */
-public class PlayersInGameList {
+public class PlayersInGameListImpl implements PlayersInGameList {
 
-    public PlayersInGameList(List<PlayerInGame> players) {
+    public PlayersInGameListImpl(List<PlayerInGame> players) {
         this.players = (ArrayList<PlayerInGame>) players;
         this.queueOfPlayersForStep = new PriorityQueue<>();
         resetListToNewGame();
     }
 
-    public PlayersInGameList() {
+    public PlayersInGameListImpl() {
         this(new ArrayList<>());
     }
 
@@ -38,6 +39,7 @@ public class PlayersInGameList {
      *
      * @param player - игрок
      */
+    @Override
     public void addPlayer(PlayerInGame player) {
         players.add(player);
         refreshPositions();
@@ -47,6 +49,7 @@ public class PlayersInGameList {
     /**
      * Сбросить результаты игроков и выдать рандомные номера
      */
+    @Override
     public void resetListToNewGame(){
         resetPlayersResult();
         shufflePlayers();
@@ -84,11 +87,13 @@ public class PlayersInGameList {
     /*TODO - хранить прошлые состояния players - посмотреть System.arraycopy
     * копируем players после step и храним его в очереди
     * */
+    @Override
     public void rollback(){}
 
     /**
      * Обновляем места игроков, по их результатам
      */
+    @Override
     public void refreshPositions() {
         Collections.sort(players);
         for (PlayerInGame player : players) {
@@ -102,6 +107,7 @@ public class PlayersInGameList {
      * @return
      */
     // TODO: для UI лишнее
+    @Override
     public PlayerInGame getNextPlayerForStep() {
         PlayerInGame nextPlayer = queueOfPlayersForStep.poll();
         if (!nextPlayer.isEnd()) {
@@ -112,8 +118,6 @@ public class PlayersInGameList {
 
     //-------------------- Getters/Setters ------------------------//
 
-
-    public enum CompareBy {Number}
 
     private Comparator<PlayerInGame> getComparator(CompareBy compareBy){
         Comparator<PlayerInGame> comparator = null;
@@ -131,20 +135,24 @@ public class PlayersInGameList {
      *
      * @return
      */
+    @Override
     public ArrayList<PlayerInGame> getPlayersClone() {
         return (ArrayList<PlayerInGame>) players.clone();
     }
 
+    @Override
     public ArrayList<PlayerInGame> getPlayersClone(CompareBy compareBy){
         ArrayList<PlayerInGame> playersClone = getPlayersClone();
         playersClone.sort(getComparator(compareBy));
         return playersClone;
     }
 
+    @Override
     public ArrayList<PlayerInGame> getPlayers() {
         return players;
     }
 
+    @Override
     public void setPlayers(ArrayList<PlayerInGame> players) {
         this.players = players;
     }
