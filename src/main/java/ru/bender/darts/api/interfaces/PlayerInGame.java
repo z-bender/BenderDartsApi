@@ -10,7 +10,7 @@ public interface PlayerInGame extends Comparable<PlayerInGame> {
     @Override
     int compareTo(PlayerInGame o);
 
-    public void resetResults();
+    void resetResults();
 
     void addShots(short shotsCountToAdd);
 

@@ -17,11 +17,7 @@ public interface Game {
 
     PlayersInGameList getPlayersList();
 
-    void setDartsCount(short dartsCount);
-
     short getDartsCount();
-
-    void setPointsToEnd(short pointsToEnd);
 
     short getPointsToEnd();
 
