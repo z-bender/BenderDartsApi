@@ -14,7 +14,7 @@ import ru.bender.darts.api.interfaces.PlayerInGame;
 
 @Configuration
 @ComponentScan(basePackages = "ru.bender.darts.api.impl")
-@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class AppConfig {
 
     @Bean
