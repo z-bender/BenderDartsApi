@@ -1,9 +1,6 @@
 package ru.bender.darts.api.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.*;
 import ru.bender.darts.api.aspects.LoggerAspect;
 import ru.bender.darts.api.impl.HomerGame;
 import ru.bender.darts.api.impl.PlayerImpl;
@@ -15,6 +12,7 @@ import ru.bender.darts.api.interfaces.PlayerInGame;
 @Configuration
 @ComponentScan(basePackages = "ru.bender.darts.api.impl")
 @EnableAspectJAutoProxy(proxyTargetClass = true)
+@Import(DBConfig.class)
 public class AppConfig {
 
     @Bean
