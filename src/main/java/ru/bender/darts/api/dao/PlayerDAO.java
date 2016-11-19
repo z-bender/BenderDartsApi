@@ -8,6 +8,8 @@ public interface PlayerDAO {
 
     int insert(Player player);
 
+    int insert(String playerName);
+
     void update(Player player);
 
     Player getPlayer(int ID);

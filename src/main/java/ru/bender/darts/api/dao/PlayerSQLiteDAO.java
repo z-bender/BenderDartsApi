@@ -34,9 +34,15 @@ public class PlayerSQLiteDAO implements PlayerDAO {
     }
 
     @Override
+    public int insert(String playerName) {
+        //TODO: заменить реализация игрока, на его интерфейс
+        return insert(new PlayerImpl(playerName));
+    }
+
+    @Override
     public void update(Player player) {
-        String sql = "UPDATE player " +
-                "SET " +
+        String sql = "UPDATE " + TABLE_NAME +
+                " SET " +
                 "   name = :name, " +
                 "   best_result_of_step = :best_result_of_step, " +
                 "   best_result_of_count_shots = :best_result_of_count_shots " +
@@ -47,7 +53,7 @@ public class PlayerSQLiteDAO implements PlayerDAO {
     @Override
     public Player getPlayer(int ID) {
         String sql = "SELECT id, name, best_result_of_step, best_result_of_count_shots" +
-                "  FROM player" +
+                "  FROM " + TABLE_NAME +
                 "  WHERE id = :id;";
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("id", ID);
@@ -56,7 +62,9 @@ public class PlayerSQLiteDAO implements PlayerDAO {
 
     @Override
     public List<Player> getPlayerList() {
-        return null;
+        String sql = "SELECT id, name, best_result_of_step, best_result_of_count_shots " +
+                "FROM " + TABLE_NAME;
+        return jdbcTemplate.query(sql, new PlayerMapper());
     }
 
     @Autowired
