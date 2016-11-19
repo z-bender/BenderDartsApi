@@ -1,6 +1,11 @@
 package ru.bender.darts.api.interfaces;
 
 public interface Player {
+
+    int getID();
+
+    void setID(int ID);
+
     String getName();
 
     short getBestResultOfStep();

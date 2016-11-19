@@ -9,6 +9,8 @@ import ru.bender.darts.api.interfaces.Player;
 @Lazy
 @Scope("prototype")
 public class PlayerImpl implements Player {
+
+    private int ID;
     // имя
     private String name;
     // лучший результат за ход TODO
@@ -17,11 +19,23 @@ public class PlayerImpl implements Player {
     // лучший результат количества бросков TODO
     private short bestResultOfCountShots;
 
+    public PlayerImpl() {
+
+    }
+
     public PlayerImpl(String name) {
         this.name = name;
     }
 
     //-------------------- Getters/Setters ------------------------//
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     @Override
     public String getName() {
