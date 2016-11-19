@@ -4,5 +4,5 @@ import ru.bender.darts.api.interfaces.Player;
 
 public interface PlayerDAO {
 
-    void insert(Player player);
+    int insert(Player player);
 }
