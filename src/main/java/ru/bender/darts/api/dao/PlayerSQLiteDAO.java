@@ -81,7 +81,7 @@ public class PlayerSQLiteDAO implements PlayerDAO {
                 "    name                       VARCHAR (20) NOT NULL" +
                 "                                            UNIQUE," +
                 "    best_result_of_step        INTEGER      DEFAULT ( 0)," +
-                "    best_result_of_count_shots              DEFAULT ( 0)" +
+                "    best_result_of_count_shots INTEGER      DEFAULT ( 0)" +
                 ");";
         jdbcTemplate.getJdbcOperations().execute(sql);
     }
