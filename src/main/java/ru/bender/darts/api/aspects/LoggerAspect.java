@@ -15,6 +15,7 @@ public class LoggerAspect {
     }
 */
 
+//FIXME: не подхватывается step
 //    @AfterReturning("execution(* ru.bender.darts.api.impl.PlayerInGameImpl.setPointsToEnd(..))")
     @After("execution(* *.step(..))")
 //    @After("target(ru.bender.darts.api.interfaces.Game)")
