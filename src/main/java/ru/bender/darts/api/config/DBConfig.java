@@ -19,9 +19,7 @@ public class DBConfig {
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("org.sqlite.JDBC");
-        driverManagerDataSource.setUrl("jdbc:sqlite:darts.db");
-        driverManagerDataSource.setUsername("");
-        driverManagerDataSource.setPassword("");
+        driverManagerDataSource.setUrl(dbUrl);
         return driverManagerDataSource;
     }
 }
